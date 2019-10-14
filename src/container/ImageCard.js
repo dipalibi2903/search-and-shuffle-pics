@@ -1,4 +1,5 @@
 import React from "react";
+import Spinner from "./spinner";
 
 class ImageCard extends React.Component {
   constructor(props) {
@@ -10,10 +11,10 @@ class ImageCard extends React.Component {
   }
 
   componentDidMount() {
-    this.imageRef.current.addEventListener("load", this.setSpanHeight);
+    this.imageRef.current.addEventListener("load", this.onImageLoad);
   }
 
-  setSpanHeight = () => {
+  onImageLoad = () => {
     if (this.imageRef.current) {
       const height = this.imageRef.current.clientHeight;
       this.setState({
